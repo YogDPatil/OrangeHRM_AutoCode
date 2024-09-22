@@ -14,6 +14,7 @@ public final class LoginPageTest extends TestBase {
 	public void testLoginByUi() {
 		Assert.assertEquals(loginPage.doLogin(Env.QA).getDashboardPageUrl("dashboard"),
 				TestUtils.getValueFromPropertyFile("BASE_URL", Env.QA) + "/dashboar/index");
+		System.out.println("change code on remote repo");
 	}
 
 }
