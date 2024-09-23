@@ -12,9 +12,9 @@ public final class LoginPageTest extends TestBase {
 
 	@Test(description = "Test user can login using credentials and redirects dashboard page")
 	public void testLoginByUi() {
-		Assert.assertEquals(loginPage.doLogin(Env.QA).getDashboardPageUrl("dashboard"),
-				TestUtils.getValueFromPropertyFile("BASE_URL", Env.QA) + "/dashboar/index");
-		System.out.println("change code on remote repo");
+		Assert.assertEquals(loginPage.doLogin(Env.valueOf(env.toUpperCase())).getDashboardPageUrl("dashboard"),
+				TestUtils.getValueFromPropertyFile("BASE_URL", Env.valueOf(env.toUpperCase())) + "/dashboard/index");
+
 	}
 
 }
