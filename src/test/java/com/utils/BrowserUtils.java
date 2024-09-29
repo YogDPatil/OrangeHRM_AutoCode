@@ -68,5 +68,17 @@ public abstract class BrowserUtils {
 
 	}
 
-	
+	public void selectValueFromDropdown(By locator, String childEleXpath, String leaveType) {
+		List<WebElement> optionList = driver.findElements(locator);
+
+		// here we avoid first element(index=0) in option list
+		for (int i = 1; i < optionList.size(); i++) {
+			WebElement option = optionList.get(i);
+			String leaveTypeInList = option.findElement(By.xpath(childEleXpath)).getText();
+			if (leaveTypeInList.equals(leaveType)) {
+				option.click();
+				break;
+			}
+		}
+	}
 }

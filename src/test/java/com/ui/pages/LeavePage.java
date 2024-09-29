@@ -23,6 +23,6 @@ public final class LeavePage extends BrowserUtils {
 	public void applyLeave() {
 		clickOn(APPLY_LEAVE_TAB_LINK);
 		clickOn(LEAVE_TYPE_DROPDOWN_LOCATOR);
-		//selectValueFromDropdown(LIVE_TYPE_LIST_LOCATOR, "./span", "CAN - FMLA");
+		selectValueFromDropdown(LIVE_TYPE_LIST_LOCATOR, "./span", "CAN - FMLA");
 	}
 }
