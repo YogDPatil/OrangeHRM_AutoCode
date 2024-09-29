@@ -9,11 +9,11 @@ import com.utils.TestUtils;
 
 @Listeners(com.listners.UiListners.class)
 public final class LoginPageTest extends TestBase {
-
+	
 	@Test(description = "Test user can login using credentials and redirects dashboard page")
 	public void testLoginByUi() {
-		Assert.assertEquals(loginPage.doLogin(Env.valueOf(env.toUpperCase())).getDashboardPageUrl("dashboard"),
-				TestUtils.getValueFromPropertyFile("BASE_URL", Env.valueOf(env.toUpperCase())) + "/dashboard/index");
+		Assert.assertEquals(loginPage.doLogin(testingEnvironment).getDashboardPageUrl("dashboard"),
+				TestUtils.getValueFromPropertyFile("BASE_URL", testingEnvironment) + "/dashboard/index");
 
 	}
 

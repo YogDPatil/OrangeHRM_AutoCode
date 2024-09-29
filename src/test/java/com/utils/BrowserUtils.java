@@ -5,11 +5,13 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -48,7 +50,7 @@ public abstract class BrowserUtils {
 		File srcFile = tss.getScreenshotAs(OutputType.FILE);
 
 		Date date = new Date();
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm");
 		String formatedDate = dateFormat.format(date);
 		String ssFolderPath = System.getProperty("user.dir") + "/screenshots/" + formatedDate;
 		File file = new File(ssFolderPath);
@@ -65,4 +67,6 @@ public abstract class BrowserUtils {
 		return ssPath;
 
 	}
+
+	
 }

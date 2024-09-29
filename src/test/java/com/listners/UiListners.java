@@ -52,7 +52,7 @@ public class UiListners implements ITestListener {
 		ITestListener.super.onStart(context);
 		extentReports = new ExtentReports();
 		Date date = new Date();
-		SimpleDateFormat dateFromat = new SimpleDateFormat("yyyy-dd-mm hh:mm:ss");
+		SimpleDateFormat dateFromat = new SimpleDateFormat("yyyy-dd-MM hh:mm");
 		String formatedDate = dateFromat.format(date);
 		String reportFolderPath = System.getProperty("user.dir") + "/reports/";
 		File reportFolder = new File(reportFolderPath);

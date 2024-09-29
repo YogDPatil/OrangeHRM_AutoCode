@@ -103,7 +103,7 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.ui.tests.LoginPageTest" class="method navigator-link" hash-for-method="testLoginByUi">testLoginByUi</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.ui.tests.LeavePageTest" class="method navigator-link" hash-for-method="testUserApplyLeaveFromUi">testUserApplyLeaveFromUi</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -121,16 +121,16 @@
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">com.ui.tests.LoginPageTest</span>
+              <span class="class-name">com.ui.tests.LeavePageTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="testLoginByUi">
-                  </a> <!-- testLoginByUi -->
-                  <span class="method-name">testLoginByUi</span>
+                  <a name="testUserApplyLeaveFromUi">
+                  </a> <!-- testUserApplyLeaveFromUi -->
+                  <span class="method-name">testUserApplyLeaveFromUi</span>
                   <em>
-(Test user can login using credentials and redirects dashboard page)                  </em>
+(Test user can apply leave from ui)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -138,7 +138,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/private/var/folders/zw/l5znmk7d5pn3w7q7lqc78_840000gn/T/testng-eclipse-1812202902/testng-customsuite.xml</span>
+            <span class="header-content">/private/var/folders/zw/l5znmk7d5pn3w7q7lqc78_840000gn/T/testng-eclipse-1452020814/testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -147,11 +147,11 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.ui.tests.LoginPageTest&quot;&gt;
+      &lt;class name=&quot;com.ui.tests.LeavePageTest&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;testLoginByUi&quot;/&gt;
+          &lt;include name=&quot;testUserApplyLeaveFromUi&quot;/&gt;
         &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- com.ui.tests.LoginPageTest --&gt;
+      &lt;/class&gt; &lt;!-- com.ui.tests.LeavePageTest --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -193,14 +193,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'testLoginByUi')
-data.setCell(0, 2, 'com.ui.tests.LoginPageTest')
-data.setCell(0, 3, 8951);
+data.setCell(0, 1, 'testUserApplyLeaveFromUi')
+data.setCell(0, 2, 'com.ui.tests.LeavePageTest')
+data.setCell(0, 3, 2171);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 8 seconds</span>
+              <span class="suite-total-time">Total running time: 2 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -215,9 +215,16 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">1 ignored method</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">com.ui.tests.LeavePageTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">testUserNavigateToLeavePage</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Default_suite" class="panel">
@@ -226,18 +233,22 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.ui.tests.LoginPageTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.ui.tests.LeavePageTest</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
                 <span class="method-name">setUp(chrome, qa)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
+              <div class="configuration-method before">
+                <span class="method-name">goToLeavePage</span>
+                <span class="method-start">1406 ms</span>
+              </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">testLoginByUi</span>
-                <span class="method-start">1382 ms</span>
+                <span class="method-name">testUserApplyLeaveFromUi</span>
+                <span class="method-start">10470 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-test after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">10335 ms</span>
+                <span class="method-start">12643 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

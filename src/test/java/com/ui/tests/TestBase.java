@@ -20,12 +20,12 @@ public abstract class TestBase {
 	private WebDriver driver;
 	protected LoginPage loginPage;
 
-	protected String env;
+	protected Env testingEnvironment;
 
 	@Parameters({ "browser", "env" })
 	@BeforeTest()
-	public void setUp(@Optional("chrome") String browser, @Optional("qa") String environment) {
-		env = environment;
+	public void setUp(@Optional("chrome") String browser, @Optional("qa") String env) {
+		testingEnvironment = Env.valueOf(env.toUpperCase());
 		if (browser.equalsIgnoreCase("chrome")) {
 			System.setProperty("webdriver.chrome.driver",
 					System.getProperty("user.dir") + "/src/test/resources/drivers/chromedriver");
@@ -36,8 +36,6 @@ public abstract class TestBase {
 			driver = new FirefoxDriver();
 		}
 		driver.manage().window().maximize();
-		// driver.get(TestUtils.getValueFromPropertyFile("BASE_URL", Env.QA) +
-		// "/web/index.php/auth/login");
 		loginPage = new LoginPage(driver);
 	}
 
