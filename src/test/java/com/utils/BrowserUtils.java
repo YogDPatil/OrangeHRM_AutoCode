@@ -3,7 +3,10 @@ package com.utils;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
 import java.time.Duration;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 
@@ -80,5 +83,33 @@ public abstract class BrowserUtils {
 				break;
 			}
 		}
+	}
+
+	public String getNextDayDate(By nxtMonthButtonLocator) {
+		LocalDate today = LocalDate.now();
+//		LocalDate today = LocalDate.parse("2024-10-31");
+		String todayDate = today.format(DateTimeFormatter.ofPattern("d"));
+		Integer.parseInt(today.format(DateTimeFormatter.ofPattern("d")));
+		DayOfWeek currentDay = today.getDayOfWeek();
+		String leaveDay;
+		if (currentDay == DayOfWeek.FRIDAY) {
+			leaveDay = today.plusDays(3).format(DateTimeFormatter.ofPattern("d"));
+		} else if (currentDay == DayOfWeek.SATURDAY) {
+			leaveDay = today.plusDays(2).format(DateTimeFormatter.ofPattern("d"));
+		} else {
+			leaveDay = today.plusDays(1).format(DateTimeFormatter.ofPattern("d"));
+		}
+		if (Integer.parseInt(todayDate) > Integer.parseInt(leaveDay)) {
+			clickOn(nxtMonthButtonLocator);
+		}
+		return leaveDay;
+	}
+	
+	public WebElement webElement(By locator) {
+		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	}
+	
+	public List<WebElement> getListOfWebElement(By locator) {
+		return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
 	}
 }

@@ -26,7 +26,7 @@ public final class LeavePageTest extends TestBase {
 	}
 
 	@Test(description = "Test user can apply leave from ui")
-	public void testUserApplyLeaveFromUi() {
+	public void testUserApplyLeaveFromUi() throws Exception {
 		leavePage.applyLeave();
 	}
 }

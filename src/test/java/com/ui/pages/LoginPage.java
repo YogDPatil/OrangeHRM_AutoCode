@@ -10,7 +10,7 @@ import com.utils.TestUtils;
 public final class LoginPage extends BrowserUtils {
 
 	private WebDriver driver;
-	private String endPoint = "/auth/login";
+	private String endPoint = "/web/index.php/leave/viewMyLeaveList";
 
 	private static final By USERNAME_LOCATOR = By.name("username");
 	private static final By PASSOWORD_LOCATOR = By.name("password");
