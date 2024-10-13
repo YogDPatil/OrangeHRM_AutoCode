@@ -28,14 +28,14 @@ public class OrangeHrmRunner {
 		xmlTest.setName(Componant.UI + " test on " + Browser.CHROME);
 		xmlTest.addParameter("browser", "chrome");
 		xmlTest.addParameter("env", "qa");
-		xmlTest.setParallel(ParallelMode.TESTS);
+		xmlTest.setParallel(ParallelMode.METHODS);
 
 		String componant = String.valueOf(Componant.UI).toLowerCase();
 		List<XmlPackage> packageList = new ArrayList<>();
 		XmlPackage xmlPackage = new XmlPackage("com." + componant + ".tests");
 		packageList.add(xmlPackage);
 		xmlTest.setPackages(packageList);
-		xmlTest.addIncludedGroup("smoke");
+		xmlTest.addIncludedGroup("e2e");
 
 		List<XmlTest> testList = new ArrayList<>();
 		testList.add(xmlTest);

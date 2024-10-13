@@ -38,6 +38,7 @@ public final class LeavePage extends BrowserUtils {
 	private static final By MY_LEAVE_TAB_LINK_LOCATOR = By.linkText("My Leave");
 	private static final By PAGINATION_NEXT_BUTTON_LOCATOR = By
 			.xpath("//ul[@class='oxd-pagination__ul']//li//i[contains(@class,'right')]");
+	private static final By TIME_TAB_LOCATOR = By.xpath("//a[contains(@href,'viewTimeModule')]");
 
 	public LeavePage(WebDriver driver) {
 		super(driver);
@@ -93,6 +94,10 @@ public final class LeavePage extends BrowserUtils {
 			}
 		}
 
+	}
+
+	public void clickOnTimeTab() {
+		clickOn(TIME_TAB_LOCATOR);
 	}
 
 }
