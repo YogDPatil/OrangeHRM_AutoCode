@@ -1,19 +1,30 @@
 package com.ui.tests;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.GeckoDriverInfo;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
-
 import com.constants.Env;
 import com.ui.pages.LoginPage;
-import com.utils.TestUtils;
 
 public abstract class TestBase {
 
@@ -23,7 +34,7 @@ public abstract class TestBase {
 	protected Env testingEnvironment;
 
 	@Parameters({ "browser", "env" })
-	@BeforeTest()
+	@BeforeTest(alwaysRun = true)
 	public void setUp(@Optional("chrome") String browser, @Optional("qa") String env) {
 		testingEnvironment = Env.valueOf(env.toUpperCase());
 		if (browser.equalsIgnoreCase("chrome")) {
@@ -39,7 +50,7 @@ public abstract class TestBase {
 		loginPage = new LoginPage(driver);
 	}
 
-	@AfterTest
+	@AfterTest(alwaysRun = true)
 	public void tearDown() throws InterruptedException {
 		if (driver != null) {
 			Thread.sleep(3000);

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<test thread-count="5" name="UI test on chrome">
+		<parameter name="browser" value="chrome" />
+		<parameter name="env" value="qa" />
+		<groups>
+			<run>
+				<include name="smoke" />
+			</run>
+		</groups>
+		<classes>
+			<class name="com.ui.tests.LeavePageTest" />
+			<class name="com.ui.tests.LoginPageTest" />
+		</classes>
+	</test> <!--
+	Test -->
+	<test thread-count="5" name="UI test on firefox">
+		<parameter name="browser" value="firefox" />
+		<parameter name="env" value="qa" />
+		<classes>
+			<class name="com.ui.tests.LeavePageTest" />
+			<class name="com.ui.tests.LoginPageTest" />
+		</classes>
+	</test>
+</suite> 
+

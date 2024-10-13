@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Suite">
+	<parameter name="browser" value="chrome" />
+	<parameter name="env" value="qa" />
+	<test thread-count="5" parallel="tests" name="Test">
+		<groups>
+			<run>
+				<include name="smoke" />
+			</run>
+		</groups>
+		<packages>
+			<package name="com.ui.tests" />
+		</packages>
+	</test> <!--
+	Test -->
+</suite> <!--
+Suite -->

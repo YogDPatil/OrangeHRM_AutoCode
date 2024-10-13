@@ -48,7 +48,7 @@ public final class LeavePage extends BrowserUtils {
 		return getCurrentPageUrl(urlEndPoint);
 	}
 
-	public void applyLeave() throws Exception {
+	public void verifyUserAplliedLeaveFromUi() throws Exception {
 		clickOn(APPLY_LEAVE_TAB_LINK);
 		clickOn(LEAVE_TYPE_DROPDOWN_LOCATOR);
 		selectValueFromDropdown(LIVE_TYPE_LIST_LOCATOR, "./span", "CAN - FMLA");
@@ -64,30 +64,6 @@ public final class LeavePage extends BrowserUtils {
 		enterText(COMMENT_TEXT_FIELD_LOCATOR, comment);
 		clickOn(LEAVE_APPLY_BUTTON);
 		clickOn(MY_LEAVE_TAB_LINK_LOCATOR);
-//		try {
-//			leave_records = getListOfWebElement(LEAVE_RECORDS_CARD_LOCATOR);
-//			leaveRecords = new ArrayList<String>();
-//			for (WebElement leaveRecord : leave_records) {
-//				String appliedLeave = leaveRecord.findElement(By.xpath(".//div[8]//div")).getText();
-//				leaveRecords.add(appliedLeave);
-//			}
-//			System.out.println("Page_1" + leaveRecords);
-//			while (webElement(PAGINATION_NEXT_BUTTON_LOCATOR).isDisplayed()) {
-//				webElement(PAGINATION_NEXT_BUTTON_LOCATOR).click();
-//				leave_records = getListOfWebElement(LEAVE_RECORDS_CARD_LOCATOR);
-//				for (WebElement leaveRecord : leave_records) {
-//					String appliedLeave = leaveRecord.findElement(By.xpath(".//div[8]//div")).getText();
-//					leaveRecords.add(appliedLeave);
-//				}
-//			}
-//		} catch (Exception e) {
-//			System.out.println("No next page is available");
-//		}
-//		if(leaveRecords.contains(TestUtils.getRandomText())) {
-//			System.out.println("leave applied successfully!!!");
-//		}else {
-//			throw new Exception("Leave is not applied ");
-//		}
 
 		boolean hasNextPage = true;
 		while (hasNextPage) {
@@ -116,32 +92,6 @@ public final class LeavePage extends BrowserUtils {
 				throw new Exception("Leave is not applied ");
 			}
 		}
-
-//		do {
-//			leaveRecordsOnPage = getListOfWebElement(LEAVE_RECORDS_CARD_LOCATOR);
-//			leaveRecords = new ArrayList<String>();
-//			for (WebElement leaveRecord : leaveRecordsOnPage) {
-//				leaveRecords.add(leaveRecord.findElement(By.xpath(".//div[8]//div")).getText());
-//			}
-//
-//			try {
-//				JavascriptExecutor je = (JavascriptExecutor) driver;
-//				je.executeScript("arguments[0].scrollIntoView();", webElement(PAGINATION_NEXT_BUTTON_LOCATOR));
-//				if (webElement(PAGINATION_NEXT_BUTTON_LOCATOR).isDisplayed()) {
-//					webElement(PAGINATION_NEXT_BUTTON_LOCATOR).click();
-//				} else {
-//					break;
-//				}
-//			} catch (Exception e) {
-//				System.out.println("No next page is available");
-//			}
-//			if (leaveRecords.contains(comment)) {
-//				System.out.println("leave applied successfully!!!");
-//			} else {
-//				throw new Exception("Leave is not applied ");
-//			}
-//
-//		} while (true);
 
 	}
 
