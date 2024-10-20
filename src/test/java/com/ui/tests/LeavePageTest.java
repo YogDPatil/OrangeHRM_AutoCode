@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 
@@ -24,6 +25,12 @@ public final class LeavePageTest extends TestBase {
 //		leavePage = loginPage.doLogin(testingEnvironment).goToLeavePage();
 	}
 
+//	@BeforeMethod(alwaysRun = true)
+//	public void goToLeavePage() {
+//		loginPage = new LoginPage(getDriver());
+//		leavePage = loginPage.doLogin(testingEnvironment).goToLeavePage();
+//	}
+
 	@Test(description = "Test after clicking leave tab user navigates to leave page", groups = { "smoke", "sanity",
 			"e2e" })
 	public void testUserNavigateToLeavePage() {
@@ -37,7 +44,7 @@ public final class LeavePageTest extends TestBase {
 		leavePage.verifyUserAplliedLeaveFromUi();
 	}
 
-	@Test(groups = { "e2e" })
+	@Test(groups = { "e2e", "smoke" })
 	public void TestZlickOnTimeTab() {
 		leavePage.clickOnTimeTab();
 	}

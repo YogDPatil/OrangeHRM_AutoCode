@@ -33,10 +33,10 @@ import com.utils.TestUtils;
 public final class LoginPageTest extends TestBase {
 	private LoginPage loginPage;
 
-	@BeforeTest(alwaysRun = true)
-	public void goToLoginPage() {
-		loginPage = new LoginPage(getDriver());
-	}
+//	@BeforeTest(alwaysRun = true)
+//	public void goToLoginPage() {
+//		loginPage = new LoginPage(getDriver());
+//	}
 
 	@Test(description = "Test user can login using credentials and redirects dashboard page", groups = { "sanity",
 			"e2e" })

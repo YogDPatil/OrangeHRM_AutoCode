@@ -1,6 +1,7 @@
 package com.ui.pages;
 
 import java.time.DayOfWeek;
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAdjuster;
@@ -43,6 +44,7 @@ public final class LeavePage extends BrowserUtils {
 	public LeavePage(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 	}
 
 	public String getLeavePageUrl(String urlEndPoint) {
@@ -61,7 +63,7 @@ public final class LeavePage extends BrowserUtils {
 		By to_date_of_leave_locator = By.xpath("//div[@class='oxd-calendar-date' and text()='" + leaveDate + "']");
 		clickOn(to_date_of_leave_locator);
 		String comment = TestUtils.getRandomText();
-		System.out.println("******* COMMENT ******" + comment);
+		System.out.println("******* COMMENT ****** " + comment);
 		enterText(COMMENT_TEXT_FIELD_LOCATOR, comment);
 		clickOn(LEAVE_APPLY_BUTTON);
 		clickOn(MY_LEAVE_TAB_LINK_LOCATOR);

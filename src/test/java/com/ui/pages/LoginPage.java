@@ -40,4 +40,11 @@ public final class LoginPage extends BrowserUtils {
 		return new DashboardPage(driver);
 	}
 
+	public DashboardPage enterCredAndLogin(String userName, String pass) {
+		enterText(USERNAME_LOCATOR, userName);
+		enterText(PASSOWORD_LOCATOR, pass);
+		clickOn(LOGIN_LOCATOR);
+		return new DashboardPage(driver);
+	}
+
 }

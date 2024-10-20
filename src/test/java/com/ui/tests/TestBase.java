@@ -19,8 +19,8 @@ public abstract class TestBase {
 
 	protected LoginPage loginPage;
 	protected WebDriver driver;
-	private static ThreadLocal<WebDriver> thlDriver = new ThreadLocal<WebDriver>();
-	protected static ThreadLocal<LoginPage> thlcLoginPage = new ThreadLocal<LoginPage>();
+	private static ThreadLocal<WebDriver> thlcDriver = new ThreadLocal<WebDriver>();
+	private ThreadLocal<LoginPage> thlcLoginPage = new ThreadLocal<LoginPage>();
 
 	protected Env testingEnvironment;
 
@@ -32,18 +32,39 @@ public abstract class TestBase {
 		if (browser.equalsIgnoreCase("chrome")) {
 			System.setProperty("webdriver.chrome.driver",
 					System.getProperty("user.dir") + "/src/test/resources/drivers/chromedriver");
-			thlDriver.set(new ChromeDriver());
+			thlcDriver.set(new ChromeDriver());
 		} else if (browser.equalsIgnoreCase("firefox")) {
 			System.setProperty("webdriver.gecko.driver",
 					System.getProperty("user.dir") + "/src/test/resources/drivers/geckodriver");
-			thlDriver.set(new FirefoxDriver());
+			thlcDriver.set(new FirefoxDriver());
 		}
-		thlDriver.get().manage().window().maximize();
-		thlcLoginPage.set(new LoginPage(thlDriver.get()));
+		thlcDriver.get().manage().window().maximize();
+		thlcLoginPage.set(new LoginPage(thlcDriver.get()));
 	}
 
+//	@Parameters({ "browser", "env" })
+//	public WebDriver setUpDriver(@Optional("chrome") String browser, @Optional("qa") String env) {
+//		testingEnvironment = Env.valueOf(env.toUpperCase());
+//		if (browser == null || browser.isEmpty())
+//			browser = "chrome";
+//		if (env == null || env.isEmpty())
+//			env = "qa";
+//
+//		if (browser.equalsIgnoreCase("chrome")) {
+//			System.setProperty("webdriver.chrome.driver",
+//					System.getProperty("user.dir") + "/src/test/resources/drivers/chromedriver");
+//			thlcDriver.set(new ChromeDriver());
+//		} else if (browser.equalsIgnoreCase("firefox")) {
+//			System.setProperty("webdriver.gecko.driver",
+//					System.getProperty("user.dir") + "/src/test/resources/drivers/geckodriver");
+//			thlcDriver.set(new FirefoxDriver());
+//		}
+//		thlcDriver.get().manage().window().maximize();
+//		return thlcDriver.get();
+//	}
+
 	public WebDriver getDriver() {
-		return thlDriver.get();
+		return thlcDriver.get();
 	}
 
 	public LoginPage getLoginPage() {
@@ -52,10 +73,10 @@ public abstract class TestBase {
 
 	@AfterMethod(alwaysRun = true)
 	public void tearDown() throws InterruptedException {
-		if (thlDriver.get() != null) {
+		if (thlcDriver.get() != null) {
 			Thread.sleep(3000);
-			thlDriver.get().quit();
-			thlDriver.remove();
+			thlcDriver.get().quit();
+			thlcDriver.remove();
 
 		}
 	}
